@@ -172,11 +172,15 @@ jobs:
           sarif_file: 'trivy-image-results.sarif'
         continue-on-error: true
 
-      - name: Verify image was pushed
+      - name: Verify image was pushed to ECR
         run: |
           echo "Verifying image was pushed to ECR..."
           aws ecr describe-images --repository-name ${{ env.ECR_REPOSITORY }} --region ${{ env.AWS_REGION }} --image-ids imageTag=latest
           echo "✅ Image successfully pushed to ECR"
+          
+          # List all images in the repository
+          echo "Images in ECR repository:"
+          aws ecr list-images --repository-name ${{ env.ECR_REPOSITORY }} --region ${{ env.AWS_REGION }}
 
   deploy-to-aws:
     name: Deploy to AWS EKS
