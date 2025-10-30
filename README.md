@@ -2,6 +2,12 @@
 
 A comprehensive DevOps project demonstrating modern containerization, orchestration, and CI/CD practices using a full-stack Todo application.
 
+## 🚀 Latest Updates
+- ✅ Fixed GitHub Actions CI/CD pipeline with proper permissions
+- ✅ Enhanced security scanning with proper SARIF upload
+- ✅ Improved AWS deployment with cluster readiness checks
+- ✅ Added comprehensive error handling and cleanup processes
+
 ## 🏗️ Architecture Overview
 
 ```
