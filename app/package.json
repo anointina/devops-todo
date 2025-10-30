@@ -1,13 +1,23 @@
 {
   "name": "devops-todo",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "Enhanced DevOps Todo Application with modern features",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "node -e \"console.log('no tests')\""
+    "dev": "nodemon app.js",
+    "test": "node -e \"console.log('Enhanced todo app - tests coming soon!')\"",
+    "health": "curl -f http://localhost:3000/health || exit 1"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "body-parser": "^1.20.2"
-  }
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["devops", "todo", "express", "docker", "kubernetes"],
+  "author": "DevOps Student",
+  "license": "MIT"
 }

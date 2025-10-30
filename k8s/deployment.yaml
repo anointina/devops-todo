@@ -2,8 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devops-todo
+  namespace: devops-todo
+  labels:
+    app: devops-todo
+    version: v2.0.0
 spec:
-  replicas: 1
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: devops-todo
@@ -11,9 +20,47 @@ spec:
     metadata:
       labels:
         app: devops-todo
+        version: v2.0.0
     spec:
       containers:
       - name: devops-todo
-        image: devops-todo:local
+        image: YOUR_DOCKERHUB_USERNAME/devops-todo:latest
         ports:
         - containerPort: 3000
+          name: http
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: PORT
+          value: "3000"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          runAsUser: 1000
+          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+            - ALL

@@ -2,12 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: devops-todo-service
+  namespace: devops-todo
+  labels:
+    app: devops-todo
 spec:
   selector:
     app: devops-todo
-  type: NodePort
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3000
-      # nodePort: 30080  # optional: specify if you want a fixed node port
+      name: http
