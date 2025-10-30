@@ -14,11 +14,11 @@ To enable the full CI/CD pipeline with AWS deployment, you need to add the follo
 
 #### Secret 1: AWS_ACCESS_KEY_ID
 - **Name**: `AWS_ACCESS_KEY_ID`
-- **Value**: `AKIAZBWGBKVY6YAVVSEX`
+- **Value**: `[Your AWS Access Key ID]`
 
 #### Secret 2: AWS_SECRET_ACCESS_KEY
 - **Name**: `AWS_SECRET_ACCESS_KEY`
-- **Value**: `XN0wwIWWyCVrkwbGeajRopQMud8uA4x7SIBHFedB`
+- **Value**: `[Your AWS Secret Access Key]`
 
 ### 3. Verify Secrets
 After adding both secrets, you should see:
@@ -33,8 +33,8 @@ If you have GitHub CLI installed, you can add secrets using commands:
 # Install GitHub CLI first if not installed
 # Then authenticate: gh auth login
 
-gh secret set AWS_ACCESS_KEY_ID --body "AKIAZBWGBKVY6YAVVSEX"
-gh secret set AWS_SECRET_ACCESS_KEY --body "XN0wwIWWyCVrkwbGeajRopQMud8uA4x7SIBHFedB"
+gh secret set AWS_ACCESS_KEY_ID --body "YOUR_AWS_ACCESS_KEY_ID"
+gh secret set AWS_SECRET_ACCESS_KEY --body "YOUR_AWS_SECRET_ACCESS_KEY"
 ```
 
 ## What These Secrets Enable

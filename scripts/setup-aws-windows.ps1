@@ -92,8 +92,8 @@ Write-Host ""
 Write-Host "🔧 Configuring AWS credentials..." -ForegroundColor Blue
 
 # Configure AWS credentials
-$accessKey = "AKIAZBWGBKVY6YAVVSEX"
-$secretKey = "XN0wwIWWyCVrkwbGeajRopQMud8uA4x7SIBHFedB"
+$accessKey = "YOUR_AWS_ACCESS_KEY_ID"
+$secretKey = "YOUR_AWS_SECRET_ACCESS_KEY"
 $region = "us-west-2"
 
 # Create AWS credentials directory if it doesn't exist

@@ -12,11 +12,13 @@ Your GitHub Actions workflow requires AWS credentials to function properly. Foll
 
 #### Secret 1: AWS Access Key ID
 - **Name**: `AWS_ACCESS_KEY_ID`
-- **Value**: `AKIAZBWGBKVY6YAVVSEX`
+- **Value**: `[Your AWS Access Key ID from previous setup]`
 
 #### Secret 2: AWS Secret Access Key
 - **Name**: `AWS_SECRET_ACCESS_KEY`
-- **Value**: `XN0wwIWWyCVrkwbGeajRopQMud8uA4x7SIBHFedB`
+- **Value**: `[Your AWS Secret Access Key from previous setup]`
+
+> **Note**: Use the AWS credentials you configured earlier when setting up the local environment.
 
 ### 3. Verify Secrets Added
 After adding both secrets, you should see:
